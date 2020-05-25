@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;500;600&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" type="image/png" href="">
+
+
+    <title>Dock 25 Hostel</title>
+</head>
+
+<body>
+    <header class="header">
+    <div class="logotxt">
+        <span class="logo">DOCK25 LOGO</span>
+    </div>
+    <div class="txtbox">
+        <h1 class="h1-txt">
+            <span class="h1-main">DOCK25 HOSTEL</span>
+            <span class="h1-sub">The Backpacker's House</span>
+        </h1>
+        <a href="#" class="btn btn-white" id="booknow">bookNow</a>
+    </div>
+        
+    </header>
+
+    <div class="modal-overlay closed" id="modal-overlay"></div>
+    <div class="modal closed" id="modal">
+            <button class="close-button" id="close-button">X</button>
+            <div class="modal-guts">
+              <h1>10% DISCOUNT</h1>
+              <p>We prefer a direct contact that's why we offer you a discount.</p>
+              <p>Reserving here you will get preference on discounts and early check-in and late check-out.</p>
+            
+              <iframe id="allocator" src="https://myallocator.com/booknow/e4UCXzaKngIHBmctssvcFw" width=100% height=100% frameBorder="0"></iframe>
+           
+            </div>
+          </div>
+    
+</body>
+<script>
+var modal = document.querySelector("#modal");
+var modalOverlay = document.querySelector("#modal-overlay");
+var closeButton = document.querySelector("#close-button");
+var openButton = document.querySelector("#booknow");
+
+closeButton.addEventListener("click", function() {
+  modal.classList.toggle("closed");
+  modalOverlay.classList.toggle("closed");
+});
+
+openButton.addEventListener("click", function() {
+  modal.classList.toggle("closed");
+  modalOverlay.classList.toggle("closed");
+});
+
+</script>
+</html>
+
+
