@@ -38,10 +38,10 @@
     <section class="trigger1" id="large">
       <div id="bloq">
         <!-- <blockquote>"The old school kind of hostel"<span></span></blockquote> -->
-        <object type="image/svg+xml" data="big-board-text.svg" width=70%></object>
+        <object type="image/svg+xml" data="big-board-text.svg" width=243 height=158></object>
       </div>
       <div id="svg" class="svg anime">
-        <object type="image/svg+xml" data="big-bunk.svg" width=80%></object>    
+        <object type="image/svg+xml" data="big-bunk.svg" width=315 height=315></object>    
       </div>
       <!-- <div class="iphone"></div> -->
       
@@ -97,14 +97,14 @@ tn1 = new TweenMax.to(div1, 2, {top:200, left:300, rotation:360, zIndex:20, paus
 
         
 TweenLite.defaultEase = Linear.easeNone;
-TweenMax.set("#bloq", { yPercent: 0, xPercent: -100, zIndex:10 });
-TweenMax.set("#svg", { yPercent: 0, xPercent: 100 });
+TweenMax.set("#bloq", { yPercent: 0, xPercent: 50, zIndex:10 });
+TweenMax.set("#svg", { yPercent: 0, xPercent: 50 });
 
 let controller = new ScrollMagic.Controller();
 
 tween = new TimelineMax();
 
-tween.to("#bloq", 1, { left: "50%", xPercent: 50, zIndex:10 }, "first");
+tween.to("#bloq", 1, { left: "50%", xPercent: -50, zIndex:10 }, "first");
 tween.to("#svg", 1, { right: "50%", xPercent: 50 }, "first");
 
 //  .add([
@@ -117,7 +117,7 @@ tween.to("#svg", 1, { right: "50%", xPercent: 50 }, "first");
 const scene = new ScrollMagic.Scene({
   triggerElement: ".logotxt",
   triggerHook: "onLeave",
-  duration: "115%"
+  duration: "100%"
 })
 .setTween(tween)
 .addTo(controller)
