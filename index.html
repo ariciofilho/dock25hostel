@@ -35,14 +35,13 @@
     </header>
 <!-- MIDDLE SCROLL-TWEEN ANIMATION -->
 
-    <section class="center" id="trigger1">
+    <section class="trigger1" id="large">
       <div id="bloq">
         <!-- <blockquote>"The old school kind of hostel"<span></span></blockquote> -->
         <object type="image/svg+xml" data="big-board-text.svg" width=70%></object>
       </div>
       <div id="svg" class="svg anime">
-        <object type="image/svg+xml" data="big-bunk.svg" width=80%></object>
-        
+        <object type="image/svg+xml" data="big-bunk.svg" width=80%></object>    
       </div>
       <!-- <div class="iphone"></div> -->
       
@@ -93,36 +92,35 @@ EXAMPLE OF COMPLETE TWEENMAX CALL
 tn1 = new TweenMax.to(div1, 2, {top:200, left:300, rotation:360, zIndex:20, paused:true, onStart:tn1Start, onUpdate:tn1Update, onComplete:tn1Complete})*/
 
 
+
 /* WORKING NICE */
 
-
-  TweenLite.defaultEase = Linear.easeNone;
+        
+TweenLite.defaultEase = Linear.easeNone;
+TweenMax.set("#bloq", { yPercent: 0, xPercent: -100, zIndex:10 });
+TweenMax.set("#svg", { yPercent: 0, xPercent: 100 });
 
 let controller = new ScrollMagic.Controller();
 
-const tween = new TimelineMax()
-.add([
-  TweenMax.to("#bloq", 1, { yPercent: 0, xPercent: 195, zIndex:10}, "+=2"),
-  TweenMax.to("#svg", 1, { yPercent: 0, xPercent: -100}, "+=2")
-]);
+tween = new TimelineMax();
+
+tween.to("#bloq", 1, { left: "50%", xPercent: 50, zIndex:10 }, "first");
+tween.to("#svg", 1, { right: "50%", xPercent: 50 }, "first");
+
+//  .add([
+//  TweenMax.to("#bloq", 1, { yPercent: 0, xPercent: 195}, "first"),
+//  TweenMax.to("#svg", 1, { yPercent: 0, xPercent: -100}, "first")
+// ]);
+
 
 
 const scene = new ScrollMagic.Scene({
   triggerElement: ".logotxt",
   triggerHook: "onLeave",
-  duration: "60%"
+  duration: "115%"
 })
 .setTween(tween)
-.addTo(controller);
-
-
-
-
-
-
-
-
-
+.addTo(controller)
 
 
 </script>
