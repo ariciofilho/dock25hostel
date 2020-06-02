@@ -249,7 +249,7 @@ body {
   background: indigo;
 }
 
-.dog {
+.board1 {
   width: 243px;
   height: 158px;
   background: url("big-board-text.png");
@@ -257,13 +257,31 @@ body {
   top: 50%;
   left: 0;
 }
-.dog1 {
+.bunk {
   width: 315px;
   height: 315px;
   background: url("big-bunk.png");
   position: absolute;
   top: 50%;
   right: 0;
+}
+
+.arrow {
+  width: 104px;
+  height: 272px;
+  background: url("top-arrow.png");
+  position: absolute;
+  right: 50%;
+  top: 50%;
+}
+
+.fly-txt {
+  position: absolute;
+  font-size: 2.3rem;
+  text-align: center;
+  width: 450px;
+  right: 50%;
+  bottom: 0;
 }
 
 </style>
@@ -283,8 +301,10 @@ body {
 
 </div>
 <div class="content content3 pinDiv">
-  <div class="dog"></div>
-  <div class="dog1"></div>
+  <div class="board1"></div>
+  <div class="bunk"></div>
+  <div class="arrow"></div>
+  <div class="fly-txt"><blockquote>ADDING A FEW INSTRUCTIONS</blockquote></div>
   <!-- <div class="percentage">Dog timeline percentage complete: <span>0</span>%</div>-->
 </div>
 <div class="content content4"><h1>Content 4</h1></div>
@@ -310,8 +330,6 @@ body {
 </body>
 <script>
 
-
-
 // GENERATE THE BOOKNOW MODAL
 
 var modal = document.querySelector("#modal");
@@ -332,21 +350,30 @@ openButton.addEventListener("click", function() {
 
 
 TweenLite.defaultEase = Linear.easeNone;
-TweenMax.set(".dog", { yPercent: -50, xPercent: -100, zIndex: 10 });
-TweenMax.set(".dog1", { yPercent: -50, xPercent: 100 });
+TweenMax.set(".board1", { yPercent: -50, xPercent: -100, zIndex: 10 });
+TweenMax.set(".bunk", { yPercent: -50, xPercent: 100 });
+TweenMax.set(".fly-txt", { yPercent: 100, xPercent: 75, zIndex: 8 });
+TweenMax.set(".arrow", { yPercent: -50, xPercent: 50, opacity: 0, zIndex: 7 });
+
 const tween = new TimelineMax();
 const controller = new ScrollMagic.Controller();
 // const percent = document.querySelector(".percentage span");
 
-tween.to(".dog", 1, { left: "50%", xPercent: -50 }, "first");
-// tween.to(".dog", 1, { left: "150%", xPercent: -100 }, "second");
-tween.to(".dog1", 1, { right: "50%", xPercent: 50 }, "first");
-//tween.to(".dog1", 1, { right: "150%", xPercent: 100 }, "second");
+tween.to(".bunk", 1, { right: "50%", xPercent: 50 }, "first");
+tween.to(".board1", 1, { left: "50%", xPercent: -50 }, "first");
+tween.to(".board1", 1, { left: "50%", xPercent: -50, opacity: 1 }, "second");
+tween.to(".board1", 1, { left: "50%", xPercent: -50, opacity: 0 }, "second one");
+// tween.to(".board1", 1, { left: "150%", xPercent: -100 }, "second");
+
+tween.to(".fly-txt", 1, { bottom: "50%", yPercent: -50 }, "third");
+tween.to(".fly-txt", 1, { bottom: "150%", yPercent: -100 }, "fourth");
+
+tween.to(".arrow", 1, { bottom: 0, yPercent: -50, xPercent: 50, opacity: 1 }, "fith");
 
 const scene = new ScrollMagic.Scene({
   triggerElement: ".pinDiv",
   triggerHook: "onLeave",
-  duration: "100%"
+  duration: "350%"
 })
   .setPin(".pinDiv")
   .setTween(tween)
